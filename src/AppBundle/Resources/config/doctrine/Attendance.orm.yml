@@ -1,0 +1,34 @@
+AppBundle\Entity\Attendance:
+    type: entity
+    table: null
+    manyToOne:
+          person:
+                targetEntity: Person
+                inversedBy: attendances
+                joinColumn:
+                    name: person_id
+                    referencedColumn: id
+
+    oneToMany:
+        transactions:
+            targetEntity: Transaction
+            mappedBy: attendance
+    repositoryClass: AppBundle\Repository\AttendanceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        attDate:
+            type: date
+        inTime:
+            type: time
+        outTime:
+            type: time
+        presence:
+            type: time
+        pause:
+            type: time
+    lifecycleCallbacks: {  }

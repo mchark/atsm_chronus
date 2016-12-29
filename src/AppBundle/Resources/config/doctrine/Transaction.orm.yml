@@ -1,0 +1,39 @@
+AppBundle\Entity\Transaction:
+    type: entity
+    table: null
+    manyToOne:
+        person:
+            targetEntity: Person
+            inversedBy: transactions
+            joinColumn:
+                name: person_id
+                referencedColumn: id
+
+        attendance:
+            targetEntity: Attendance
+            inversedBy: transactions
+            joinColumn:
+                name: attendance_id
+                referencedColumn: id
+    repositoryClass: AppBundle\Repository\TransactionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        transId:
+            type: integer
+            unique: true
+        text:
+            type: string
+            length: '500'
+        transType:
+            type: string
+            length: '10'
+        transDate:
+            type: date
+        transTime:
+            type: time
+    lifecycleCallbacks: {  }

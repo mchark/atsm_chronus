@@ -1,0 +1,36 @@
+.menu-item{
+
+    padding-top: 3px;
+    padding-bottom: 0px;
+    border-style: solid;
+    border-width: 0px;
+    border-right-width: 1px;
+    border-right-color: darkblue;
+    border-bottom-color: transparent;
+    border-bottom-width: 2px;
+}
+
+.menu-item:hover{
+    padding-bottom: 0pt;
+    margin-bottom: 0pt;
+    border-right-color: darkred;
+    border-bottom-color: darkred;
+    border-bottom-width: 2px;
+}
+
+.menu-item span{
+    color: darkblue;
+    font-size: 12pt;
+}
+
+.menu-item:hover span{
+    color: darkred;
+}
+
+.navbar-brand {
+
+    padding-top: 4pt;
+    padding-right: 40pt;
+}
+
+

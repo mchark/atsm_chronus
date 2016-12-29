@@ -1,0 +1,62 @@
+AppBundle\Entity\Person:
+    type: entity
+    table: null
+    oneToMany:
+        attendances:
+            targetEntity: Attendance
+            mappedBy: person
+
+        transactions:
+            targetEntity: Transaction
+            mappedBy: person
+
+    manyToMany:
+        sup:
+            targetEntity: Person
+            mappedBy: sub
+        sub:
+            targetEntity: Person
+            inversedBy: sup
+            joinTable:
+                name: hierarchy
+                joinColumns:
+                    sup_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    sub_id:
+                        referencedColumnName: id
+    repositoryClass: AppBundle\Repository\PersonRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        personId:
+            type: integer
+            unique: true
+        cin:
+            type: string
+            length: '20'
+            unique: true
+        name:
+            type: string
+            length: '70'
+        firstName:
+            type: string
+            length: '70'
+        mail:
+            type: string
+            length: '100'
+            unique: true
+        password:
+            type: string
+            length: '100'
+        personType:
+            type: string
+            length: '20'
+        isActive:
+            type: string
+            length: '10'
+    lifecycleCallbacks: {  }
